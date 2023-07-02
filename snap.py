@@ -62,4 +62,4 @@ def parse(frame):
            print("")
 
 file=sys.argv[1]
-sniff(offline=file, prn=parse)
+sniff(wlan1mon)
