@@ -46,13 +46,13 @@ def parse(frame):
         print("Max_A_MSDU:", htmax)
         if frame.haslayer(Dot11EltVendorSpecific):
               try:
-                  vendor=frame[Dot11EltVendorSpecific:2].oui
+                  vendor=0
               except:
                   vendor=0
         else:
            vendor=0
         print("Vendor:", vendor)
-        all=frame.addr3+str(frame.info)+str(channel)+str(country)+str(vendor)+str(frame.rates)+str(erates)+str(power)+str(cap)+str(htmax)+str(vendor)
+        all=str(frame.info)+str(channel)+str(country)+str(vendor)+str(frame.rates)+str(erates)+str(power)+str(cap)+str(htmax)+str(vendor)
         print("SHA256: "+(hashlib.sha256(all.encode('utf-8')).hexdigest()))
         airbasesig=str(country)+str(frame.rates)+str(erates)+str(power)+str(cap)+str(htmax)+str(vendor)
 #       print("airbase sig: "+(hashlib.sha256(airbasesig.encode('utf-8')).hexdigest()))
